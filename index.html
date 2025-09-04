@@ -1,209 +1,467 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <style>
-                body {
-                  background-color: white; /* Ensure the iframe has a white background */
-                }
-    
-                
-              </style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sociedad Ornitológica - Inicio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      width: 100%;
-      height: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      color: #333;
-      line-height: 1.7;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOCNAS - Asociación de Pájaros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #162e4a 0%, #2c5e8e 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .logo img {
+            height: 160px;
+            width: auto;
+            max-width: 100%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        
+        nav a:hover {
+            color: #ffcb69;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 5rem 1rem;
+            background: url('https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1347&q=80') center/cover no-repeat;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffcb69;
+            color: #162e4a;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background-color: #ffb224;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-azul {
+            background-color: #1e3a5f;
+            color: white;
+        }
+        
+        .btn-azul:hover {
+            background-color: #152942;
+        }
+        
+        .features {
+            padding: 6rem 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #162e4a;
+            font-size: 2.5rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .feature-card:first-child {
+            background-color: #e6f0ff;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .image-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: #f0f7ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border: 4px solid #162e4a;
+        }
+        
+        .image-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .placeholder-icon {
+            font-size: 3.5rem;
+            color: #162e4a;
+        }
+        
+        .feature-title {
+            font-size: 1.7rem;
+            margin-bottom: 1.2rem;
+            color: #162e4a;
+        }
+        
+        .feature-desc {
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            flex-grow: 1;
+            font-size: 1.05rem;
+        }
+        
+        footer {
+            background-color: #162e4a;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      padding: 1rem 5%;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
-      height: 80px;
-      display: flex;
-      align-items: center;
-    }
-    header .logo {
-      height: 60px;
-    }
+        /* PANTALLA DE DETALLE */
+        .detalle-pagina {
+            display: none;
+            padding: 4rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .detalle-pagina h2 {
+            font-size: 2.5rem;
+            color: #162e4a;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .detalle-pagina img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 12px;
+        }
+        
+        .detalle-pagina p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .btn-volver {
+            display: block;
+            width: 200px;
+            margin: 3rem auto 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .logo img {
+                height: 130px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            nav a {
+                font-size: 1.1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 4rem 1rem;
+            }
+        }
 
-    .hero {
-      text-align: center;
-      padding: 120px 5% 60px;
-      background: linear-gradient(135deg, #4a9a4a, #2d6b3a);
-      color: white;
-      min-height: calc(100vh - 80px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 800px;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      padding: 5rem 5%;
-      justify-content: center;
-      background: #f0f4f3;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 420px;
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card .icono {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 1.5rem auto 1rem;
-      display: block;
-      border: 4px solid white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .card-body {
-      padding: 1rem 1.5rem 1.8rem;
-      text-align: center;
-    }
-    .card-body h3 {
-      font-size: 1.4rem;
-      color: #2d6b3a;
-      margin-bottom: 1rem;
-    }
-    .card-body p {
-      color: #555;
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 0.8rem;
-      background: #4a9a4a;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 1rem;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #2d6b3a;
-    }
-
-    /* Colores suaves personalizables */
-    .card-verde { background: #e8f5e9; }
-    .card-azul  { background: #e3f2fd; }
-    .card-lila  { background: #f3eaf7; }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .hero p { font-size: 1.1rem; }
-      .cards { padding: 4rem 4%; }
-      .card { width: 95%; }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 1.8rem; }
-      .hero p { font-size: 1rem; }
-      .cards { gap: 1.5rem; }
-    }
-  </style>
+        @media (max-width: 480px) {
+            .logo img {
+                height: 110px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .feature-card {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .image-circle {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <header>
-    <img src="logo.png" alt="Logo Sociedad Ornitológica" class="logo" />
-  </header>
-
-  <section class="hero">
-    <h1>Bienvenido a la Sociedad Ornitológica</h1>
-    <p>Dedicados a la observación, conservación y estudio de las aves desde 1985.</p>
-  </section>
-
-  <div class="cards">
-
-    <div class="card card-verde">
-      <img src="coe-foa-logo.jpg" alt="COE-FOA" class="icono" />
-      <div class="card-body">
-        <h3>Federado con COE-FOA</h3>
-        <p>Somos miembros activos de la Confederación Ornitológica Española - Federación Ornitológica Andaluza.</p>
-        <a href="coe-foa.html" class="btn">Más información</a>
-      </div>
+    <!-- PANTALLA PRINCIPAL -->
+    <div id="pantalla-home">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhKpqbREvAPisnQmpf5zZeiRNu-3ijbegh2TfbY5tv0_TCWzxn9zynbewk5BMtSjs6PetuA1VCdF4OrkXz4gG_Gs538TON6X29SCIXNMzhaW1bwawN-y3XtlgD9EB79oNsI8xQRNsQmfO-7UmCw9i_G1SCB4fxMXXTFN-qa0HVByeS2LCYI2fR1rGWK4OY=s1600" alt="SOCNAS - Asociación de Pájaros">
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Nosotros</a></li>
+                            <li><a href="#">Especies</a></li>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bienvenidos a SOCNAS</h1>
+                <p>Asociación dedicada a la protección, estudio y conservación de las aves y sus hábitats naturales.</p>
+                <a href="#" class="btn">Únete a nosotros</a>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Nuestras Actividades</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="image-circle">
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeShj4sIpZjT2jxiJfx9_mx_xd2fAKAho2tetavf_WiX0peB8FivKjizZLGbFvFfmsmOVO9uEZD29YOlenwLSwbrXwKvBOJOrQ2zQEvctUOyQXNVu7D8x5_hafnzrePZFiGLdRRjkxxFLHDOfJXEM4DRzlPEkfZfSAjVdmBkpRe6FvDoCu-ro15WcUZ5A=s1600" alt="Observación de Aves">
+                        </div>
+                        <h3 class="feature-title">Observación de Aves</h3>
+                        <p class="feature-desc">Organizamos excursiones guiadas para observar aves en sus hábitats naturales. Aprende a identificar distintas especies con expertos.</p>
+                        <a href="#" class="btn btn-azul" onclick="mostrarPagina('observacion')">Más información</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="image-circle">
+                            <img src="https://fesacocur.es/wp-content/uploads/2015/09/logo-fesacocur-redondo.png" alt="Conservación de Hábitats">
+                        </div>
+                        <h3 class="feature-title">Conservación de Hábitats</h3>
+                        <p class="feature-desc">Participa en nuestros programas de reforestación y conservación de los ecosistemas esenciales para las aves.</p>
+                        <a href="#" class="btn" onclick="mostrarPagina('conservacion')">Más información</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="image-circle">
+                            <i class="fas fa-graduation-cap placeholder-icon"></i>
+                        </div>
+                        <h3 class="feature-title">Educación Ambiental</h3>
+                        <p class="feature-desc">Ofrecemos talleres y materiales educativos para escuelas y comunidades sobre la importancia de las aves en nuestros ecosistemas.</p>
+                        <a href="#" class="btn" onclick="mostrarPagina('educacion')">Más información</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="image-circle">
+                            <i class="fas fa-hands-helping placeholder-icon"></i>
+                        </div>
+                        <h3 class="feature-title">Voluntariado</h3>
+                        <p class="feature-desc">Únete a nuestro equipo de voluntarios y contribuye directamente a la protección y estudio de las aves en tu área.</p>
+                        <a href="#" class="btn" onclick="mostrarPagina('voluntariado')">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="container">
+                <p>&copy; 2023 SOCNAS - Asociación de Protección de Aves. Todos los derechos reservados.</p>
+            </div>
+        </footer>
     </div>
 
-    <div class="card card-azul">
-      <img src="salidas.jpg" alt="Salidas" class="icono" />
-      <div class="card-body">
-        <h3>Salidas al campo</h3>
-        <p>Únete a nuestras excursiones mensuales para observar aves en su hábitat natural.</p>
-        <a href="actividades.html" class="btn">Ver actividades</a>
-      </div>
+    <!-- PANTALLAS DE DETALLE (una por cada botón) -->
+    <div id="pantalla-observacion" class="detalle-pagina">
+        <h2>Observación de Aves</h2>
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeShj4sIpZjT2jxiJfx9_mx_xd2fAKAho2tetavf_WiX0peB8FivKjizZLGbFvFfmsmOVO9uEZD29YOlenwLSwbrXwKvBOJOrQ2zQEvctUOyQXNVu7D8x5_hafnzrePZFiGLdRRjkxxFLHDOfJXEM4DRzlPEkfZfSAjVdmBkpRe6FvDoCu-ro15WcUZ5A=s1600" alt="Observación">
+        <p>La observación de aves es una de nuestras actividades más populares. Cada mes organizamos salidas guiadas por reservas naturales, humedales y zonas de montaña donde puedes ver cientos de especies en su hábitat natural.</p>
+        <p>Nuestros guías son expertos ornitólogos que te ayudarán a identificar especies por su canto, plumaje y comportamiento. Apto para todos los niveles: principiantes, familias y expertos.</p>
+        <p>Te recomendamos llevar binoculares, cuaderno de campo, ropa adecuada y mucha paciencia. ¡La naturaleza te sorprenderá!</p>
+        <a href="#" class="btn" onclick="volverHome()">← Volver al inicio</a>
     </div>
 
-    <div class="card card-lila">
-      <img src="galeria.jpg" alt="Galería" class="icono" />
-      <div class="card-body">
-        <h3>Galería de aves</h3>
-        <p>Descubre las especies que hemos avistado en nuestras rutas por Andalucía.</p>
-        <a href="galeria.html" class="btn">Ver galería</a>
-      </div>
+    <div id="pantalla-conservacion" class="detalle-pagina">
+        <h2>Conservación de Hábitats</h2>
+        <img src="https://fesacocur.es/wp-content/uploads/2015/09/logo-fesacocur-redondo.png" alt="Conservación">
+        <p>Trabajamos activamente en la protección y restauración de ecosistemas clave para la supervivencia de muchas especies de aves. Colaboramos con otras asociaciones y administraciones en proyectos de reforestación, limpieza de riberas y recuperación de humedales.</p>
+        <p>Participa en nuestras jornadas de voluntariado: siembra árboles, retira plásticos, construye nidos artificiales o ayuda en el seguimiento de especies en peligro.</p>
+        <p>Cada acción cuenta. Únete a una causa que perdurará generaciones.</p>
+        <a href="#" class="btn" onclick="volverHome()">← Volver al inicio</a>
     </div>
 
-  </div>
+    <div id="pantalla-educacion" class="detalle-pagina">
+        <h2>Educación Ambiental</h2>
+        <i class="fas fa-graduation-cap" style="font-size: 5rem; color: #162e4a; display: block; text-align: center; margin: 2rem 0;"></i>
+        <p>Creemos que la educación es la base de la conservación. Por eso ofrecemos talleres, charlas y actividades escolares para enseñar a niños, jóvenes y adultos sobre la importancia de las aves en el equilibrio de los ecosistemas.</p>
+        <p>Trabajamos con colegios, centros culturales y asociaciones vecinales. Nuestro material didáctico es gratuito y adaptado a cada edad.</p>
+        <p>¿Quieres que vayamos a tu escuela o barrio? Contáctanos y organizamos una actividad gratuita.</p>
+        <a href="#" class="btn" onclick="volverHome()">← Volver al inicio</a>
+    </div>
 
+    <div id="pantalla-voluntariado" class="detalle-pagina">
+        <h2>Voluntariado</h2>
+        <i class="fas fa-hands-helping" style="font-size: 5rem; color: #162e4a; display: block; text-align: center; margin: 2rem 0;"></i>
+        <p>¿Te apasiona la naturaleza? Únete a nuestro equipo de voluntarios. No necesitas experiencia previa, solo ganas de ayudar.</p>
+        <p>Puedes colaborar en salidas de campo, organización de eventos, difusión en redes sociales, diseño de materiales o apoyo administrativo.</p>
+        <p>Miles de aves dependen de personas como tú. Haz la diferencia desde hoy.</p>
+        <a href="#" class="btn" onclick="volverHome()">← Volver al inicio</a>
+    </div>
+
+    <script>
+        function mostrarPagina(id) {
+            document.getElementById('pantalla-home').style.display = 'none';
+            document.getElementById('pantalla-' + id).style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function volverHome() {
+            // Ocultar todas las pantallas de detalle
+            document.querySelectorAll('.detalle-pagina').forEach(div => {
+                div.style.display = 'none';
+            });
+            // Mostrar home
+            document.getElementById('pantalla-home').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 </html>
-
-
-    
-              <script>
-                              
-              </script>
-                        </body>
-                        </html>
-                    
