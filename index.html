@@ -84,15 +84,41 @@
             transform: translateY(-3px);
         }
         
+        /* Hero section con carrusel */
         .hero {
             text-align: center;
             padding: 5rem 1rem;
-            background: url('https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1347&q=80') center/cover no-repeat;
             color: white;
             position: relative;
+            height: 500px;
+            overflow: hidden;
         }
         
-        .hero::before {
+        .hero-slides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide::before {
             content: '';
             position: absolute;
             top: 0;
@@ -102,10 +128,27 @@
             background: rgba(0, 0, 0, 0.6);
         }
         
+        .slide-1 {
+            background-image: url('https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1347&q=80');
+        }
+        
+        .slide-2 {
+            background-image: url('https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80');
+        }
+        
+        .slide-3 {
+            background-image: url('https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+        }
+        
+        .slide-4 {
+            background-image: url('https://images.unsplash.com/photo-1531875506263-6eb73c17a2fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1194&q=80');
+        }
+        
         .hero-content {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
+            z-index: 2;
         }
         
         .hero h1 {
@@ -299,6 +342,7 @@
             border-radius: 6px;
             font-weight: bold;
             margin: 0 10px;
+            transition: opacity 0.3s ease;
         }
         
         .modal-btn:hover {
@@ -312,10 +356,36 @@
             font-size: 1.5rem;
             color: #aaa;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
         
         .close-modal:hover {
             color: #000;
+        }
+
+        /* Indicadores del carrusel */
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .indicator.active {
+            background-color: #ffcb69;
         }
 
         @media (max-width: 768px) {
@@ -337,6 +407,7 @@
             }
             .hero {
                 padding: 4rem 1rem;
+                height: 450px;
             }
         }
 
@@ -360,6 +431,9 @@
                 width: 120px;
                 height: 120px;
             }
+            .hero {
+                height: 400px;
+            }
         }
     </style>
 </head>
@@ -382,6 +456,20 @@
     </header>
     
     <section class="hero">
+        <div class="hero-slides">
+            <div class="slide slide-1 active"></div>
+            <div class="slide slide-2"></div>
+            <div class="slide slide-3"></div>
+            <div class="slide slide-4"></div>
+        </div>
+        
+        <div class="slide-indicators">
+            <div class="indicator active" data-slide="0"></div>
+            <div class="indicator" data-slide="1"></div>
+            <div class="indicator" data-slide="2"></div>
+            <div class="indicator" data-slide="3"></div>
+        </div>
+        
         <div class="hero-content">
             <h1>Bienvenidos a SOCNAS</h1>
             <p>Asociación dedicada a la protección, estudio y conservación de las aves y sus hábitats naturales.</p>
@@ -466,6 +554,54 @@
             document.getElementById(id).style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+
+        // Carrusel de imágenes
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.indicator');
+            let currentSlide = 0;
+            
+            // Función para cambiar de slide
+            function goToSlide(n) {
+                slides[currentSlide].classList.remove('active');
+                indicators[currentSlide].classList.remove('active');
+                
+                currentSlide = (n + slides.length) % slides.length;
+                
+                slides[currentSlide].classList.add('active');
+                indicators[currentSlide].classList.add('active');
+            }
+            
+            // Event listeners para los indicadores
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetInterval();
+                });
+            });
+            
+            // Cambio automático cada 3 segundos
+            let slideInterval = setInterval(nextSlide, 3000);
+            
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+            
+            function resetInterval() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 3000);
+            }
+            
+            // Pausar el carrusel cuando el mouse está sobre él
+            const heroSection = document.querySelector('.hero');
+            heroSection.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            heroSection.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 3000);
+            });
+        });
     </script>
 </body>
 </html>
