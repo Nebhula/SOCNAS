@@ -20,11 +20,10 @@
         }
         
         header {
-            background: linear-gradient(135deg, #162e4a 0%, #2c5e8e 100%);
+            background-color: #162e4a;
             color: white;
-            padding: 0;
+            padding: 15px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
         
         .container {
@@ -35,22 +34,18 @@
         
         .header-content {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 5px;
-            padding: 10px 0;
+            justify-content: space-between;
         }
         
         .logo {
             display: flex;
-            justify-content: center;
-            width: 100%;
+            align-items: center;
         }
         
         .logo img {
-            height: 240px;
+            height: 80px;
             width: auto;
-            max-width: 100%;
             border-radius: 8px;
         }
         
@@ -58,10 +53,8 @@
             display: flex;
             list-style: none;
             gap: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
             margin: 0;
-            padding: 10px 0;
+            padding: 0;
         }
         
         nav a {
@@ -71,6 +64,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: all 0.3s ease;
         }
         
         nav a span {
@@ -83,8 +77,29 @@
             color: #ffcb69;
             transform: translateY(-3px);
         }
+
+        /* Ajuste de tamaño de iconos en móviles */
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 1.3rem;
+            }
+            nav a i {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 1.2rem;
+            }
+            nav a i {
+                font-size: 1.8rem;
+            }
+            nav ul {
+                gap: 20px;
+            }
+        }
         
-        /* Hero section con carrusel */
         .hero {
             text-align: center;
             padding: 5rem 1rem;
@@ -272,72 +287,14 @@
             font-size: 1.05rem;
         }
         
-        /* FOOTER MEJORADO */
         footer {
             background-color: #162e4a;
             color: white;
-            padding: 3rem 0 2rem;
+            text-align: center;
+            padding: 3rem 0;
             margin-top: 3rem;
         }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-logo img {
-            height: 80px;
-            width: auto;
-            border-radius: 8px;
-            margin-right: 20px;
-        }
-        
-        .footer-menu {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.4rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-menu a span {
-            font-size: 0.8rem;
-            margin-top: 4px;
-            opacity: 0.9;
-        }
-        
-        .footer-menu a:hover {
-            color: #ffcb69;
-            transform: translateY(-3px);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #ccc;
-            width: 100%;
-        }
 
-        /* MODAL */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -421,7 +378,6 @@
             color: #000;
         }
 
-        /* Indicadores del carrusel */
         .slide-indicators {
             position: absolute;
             bottom: 20px;
@@ -447,86 +403,96 @@
         }
 
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
             .logo img {
-                height: 180px;
+                height: 70px;
             }
+            
+            nav ul {
+                gap: 20px;
+            }
+            
             nav a {
-                font-size: 1.2rem;
-                gap: 4px;
+                font-size: 1.3rem;
             }
-            nav a span {
-                font-size: 0.75rem;
+            
+            nav a i {
+                font-size: 1.6rem;
             }
+            
             .hero h1 {
                 font-size: 2.8rem;
             }
+            
             .features-grid {
                 grid-template-columns: 1fr;
             }
+            
             .hero {
                 padding: 4rem 1rem;
                 height: 450px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-logo {
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-            
-            .footer-menu {
-                justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
             .logo img {
-                height: 160px;
+                height: 60px;
             }
+            
+            nav ul {
+                gap: 20px;
+            }
+            
+            nav a {
+                font-size: 1.2rem;
+            }
+            
+            nav a i {
+                font-size: 1.8rem;
+            }
+            
+            nav a span {
+                font-size: 0.75rem;
+            }
+            
             .hero h1 {
                 font-size: 2.2rem;
             }
+            
             .hero p {
                 font-size: 1.1rem;
             }
+            
             .section-title {
                 font-size: 2rem;
             }
+            
             .feature-card {
                 padding: 2.5rem 1.5rem;
             }
+            
             .image-circle {
                 width: 120px;
                 height: 120px;
             }
+            
             .hero {
                 height: 400px;
-            }
-            
-            .footer-menu {
-                gap: 15px;
-            }
-            
-            .footer-menu a {
-                font-size: 1.2rem;
-            }
-            
-            .footer-logo img {
-                height: 70px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- ENCABEZADO CON LOGO A LA IZQUIERDA Y MENÚ AL LADO -->
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhKpqbREvAPisnQmpf5zZeiRNu-3ijbegh2TfbY5tv0_TCWzxn9zynbewk5BMtSjs6PetuA1VCdF4OrkXz4gG_Gs538TON6X29SCIXNMzhaW1bwawN-y3XtlgD9EB79oNsI8xQRNsQmfO-7UmCw9i_G1SCB4fxMXXTFN-qa0HVByeS2LCYI2fR1rGWK4OY=s1600" alt="SOCNAS - Asociación de Pájaros">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEienInQd_dFdfLwGw__ncypnuGGEqa5yD3JoKAsQF-Lsoh7R_gMF8X0pxUBQFT5F1j2DvGZsdrGrZnZTNvrwTLPw_J-F9l6TJhzVtGFDdm9D1atTm2HmmT8iDFqiYzO43uWJ6n8BhEgCcFTvTnjP2tji_vqCYYpAQnfsxncR4x6SPuWYtL_xpdNhvlDs6E/s1600/nebhula%20%2835%29.png" alt="SOCNAS - Asociación de Pájaros">
                 </div>
                 <nav>
                     <ul>
@@ -555,7 +521,7 @@
         </div>
         
         <div class="hero-content">
-            <h1>Bienvenidos to SOCNAS</h1>
+            <h1>Bienvenidos a SOCNAS</h1>
             <p>Asociación dedicada a la protección, estudio y conservación de las aves y sus hábitats naturales.</p>
             <a href="#" class="btn">Únete a nosotros</a>
         </div>
@@ -570,7 +536,7 @@
                         <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeShj4sIpZjT2jxiJfx9_mx_xd2fAKAho2tetavf_WiX0peB8FivKjizZLGbFvFfmsmOVO9uEZD29YOlenwLSwbrXwKvBOJOrQ2zQEvctUOyQXNVu7D8x5_hafnzrePZFiGLdRRjkxxFLHDOfJXEM4DRzlPEkfZfSAjVdmBkpRe6FvDoCu-ro15WcUZ5A=s1600" alt="Observación de Aves">
                     </div>
                     <h3 class="feature-title">Observación de Aves</h3>
-                    <p class="feature-desc">Organizamos excursiones guiadas para observar aves en sus hábitats naturales. Aprende to identificar distintas especies con expertos.</p>
+                    <p class="feature-desc">Organizamos excursiones guiadas para observar aves en sus hábitats naturales. Aprende a identificar distintas especies con expertos.</p>
                     <a href="#" class="btn btn-azul">Más información</a>
                 </div>
                 
@@ -606,19 +572,7 @@
     
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhKpqbREvAPisnQmpf5zZeiRNu-3ijbegh2TfbY5tv0_TCWzxn9zynbewk5BMtSjs6PetuA1VCdF4OrkXz4gG_Gs538TON6X29SCIXNMzhaW1bwawN-y3XtlgD9EB79oNsI8xQRNsQmfO-7UmCw9i_G1SCB4fxMXXTFN-qa0HVByeS2LCYI2fR1rGWK4OY=s1600" alt="SOCNAS - Asociación de Pájaros">
-                    <div class="footer-menu">
-                        <a href="#" onclick="abrirModal('whatsapp')"><i class="fas fa-bell"></i><span>Canal</span></a>
-                        <a href="https://wa.me/34677163664" target="_blank"><i class="fab fa-whatsapp"></i><span>Contacto</span></a>
-                        <a href="https://www.google.com/maps/place/tu-empresa" target="_blank"><i class="fas fa-star"></i><span>Reseña</span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 SOCNAS - Asociación de Protección de Aves. Todos los derechos reservados.</p>
-            </div>
+            <p>&copy; 2025 SOCNAS - Asociación de Protección de Aves. Todos los derechos reservados.</p>
         </div>
     </footer>
 
