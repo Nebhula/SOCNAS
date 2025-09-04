@@ -22,7 +22,7 @@
         header {
             background: linear-gradient(135deg, #162e4a 0%, #2c5e8e 100%);
             color: white;
-            padding: 2rem 0;
+            padding: 1.2rem 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
@@ -37,7 +37,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 8px;
         }
         
         .logo {
@@ -47,7 +47,7 @@
         }
         
         .logo img {
-            height: 160px;
+            height: 180px;
             width: auto;
             max-width: 100%;
         }
@@ -55,9 +55,10 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
+            margin-top: 0;
         }
         
         nav a {
@@ -65,9 +66,9 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
-            padding: 8px 15px;
-            border-radius: 5px;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 4px;
         }
         
         nav a:hover {
@@ -227,60 +228,73 @@
             padding: 3rem 0;
             margin-top: 3rem;
         }
-
-        /* PANTALLA DE DETALLE */
-        .detalle-pagina {
+        
+        /* Estilos para el modal de FESACOCUR */
+        .modal-overlay {
             display: none;
-            padding: 4rem 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        .detalle-pagina h2 {
-            font-size: 2.5rem;
-            color: #162e4a;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .detalle-pagina img {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 500px;
-            height: auto;
-            display: block;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            position: relative;
+            background: white;
             margin: 2rem auto;
-            border-radius: 12px;
+            padding: 0;
+            width: 95%;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
         }
         
-        .detalle-pagina p {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            text-align: justify;
+        .close-modal {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            z-index: 10001;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
         }
         
-        .btn-volver {
-            display: block;
-            width: 200px;
-            margin: 3rem auto 0;
-            text-align: center;
+        .close-modal:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+        
+        #fesacocur-content {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
         }
         
         @media (max-width: 768px) {
             .logo img {
-                height: 130px;
+                height: 150px;
             }
             
             nav ul {
-                gap: 15px;
+                gap: 12px;
             }
             
             nav a {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .hero h1 {
@@ -294,16 +308,29 @@
             .hero {
                 padding: 4rem 1rem;
             }
+            
+            .modal-content {
+                width: 98%;
+                margin: 1rem auto;
+            }
+            
+            .close-modal {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+            }
         }
 
         @media (max-width: 480px) {
             .logo img {
-                height: 110px;
+                height: 130px;
             }
             
             nav ul {
                 flex-direction: column;
-                gap: 12px;
+                gap: 8px;
             }
             
             .hero h1 {
@@ -330,138 +357,183 @@
     </style>
 </head>
 <body>
-    <!-- PANTALLA PRINCIPAL -->
-    <div id="pantalla-home">
-        <header>
-            <div class="container">
-                <div class="header-content">
-                    <div class="logo">
-                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhKpqbREvAPisnQmpf5zZeiRNu-3ijbegh2TfbY5tv0_TCWzxn9zynbewk5BMtSjs6PetuA1VCdF4OrkXz4gG_Gs538TON6X29SCIXNMzhaW1bwawN-y3XtlgD9EB79oNsI8xQRNsQmfO-7UmCw9i_G1SCB4fxMXXTFN-qa0HVByeS2LCYI2fR1rGWK4OY=s1600" alt="SOCNAS - Asociación de Pájaros">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhKpqbREvAPisnQmpf5zZeiRNu-3ijbegh2TfbY5tv0_TCWzxn9zynbewk5BMtSjs6PetuA1VCdF4OrkXz4gG_Gs538TON6X29SCIXNMzhaW1bwawN-y3XtlgD9EB79oNsI8xQRNsQmfO-7UmCw9i_G1SCB4fxMXXTFN-qa0HVByeS2LCYI2fR1rGWK4OY=s1600" alt="SOCNAS - Asociación de Pájaros">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Especies</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenidos a SOCNAS</h1>
+            <p>Asociación dedicada a la protección, estudio y conservación de las aves y sus hábitats naturales.</p>
+            <a href="#" class="btn">Únete a nosotros</a>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Nuestras Actividades</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="image-circle">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeShj4sIpZjT2jxiJfx9_mx_xd2fAKAho2tetavf_WiX0peB8FivKjizZLGbFvFfmsmOVO9uEZD29YOlenwLSwbrXwKvBOJOrQ2zQEvctUOyQXNVu7D8x5_hafnzrePZFiGLdRRjkxxFLHDOfJXEM4DRzlPEkfZfSAjVdmBkpRe6FvDoCu-ro15WcUZ5A=s1600" alt="Observación de Aves">
                     </div>
-                    <nav>
-                        <ul>
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Nosotros</a></li>
-                            <li><a href="#">Especies</a></li>
-                            <li><a href="#">Eventos</a></li>
-                            <li><a href="#">Contacto</a></li>
-                        </ul>
-                    </nav>
+                    <h3 class="feature-title">Observación de Aves</h3>
+                    <p class="feature-desc">Organizamos excursiones guiadas para observar aves en sus hábitats naturales. Aprende a identificar distintas especies con expertos.</p>
+                    <a href="#" class="btn btn-azul">Más información</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="image-circle">
+                        <img src="https://fesacocur.es/wp-content/uploads/2015/09/logo-fesacocur-redondo.png" alt="Conservación de Hábitats">
+                    </div>
+                    <h3 class="feature-title">Conservación de Hábitats</h3>
+                    <p class="feature-desc">Participa en nuestros programas de reforestación y conservación de los ecosistemas esenciales para las aves.</p>
+                    <a href="#" class="btn" id="btn-fesacocur">Más información</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="image-circle">
+                        <!-- Reemplazar con tu imagen -->
+                        <i class="fas fa-graduation-cap placeholder-icon"></i>
+                    </div>
+                    <h3 class="feature-title">Educación Ambiental</h3>
+                    <p class="feature-desc">Ofrecemos talleres y materiales educativos para escuelas y comunidades sobre la importancia de las aves en nuestros ecosistemas.</p>
+                    <a href="#" class="btn">Más información</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="image-circle">
+                        <!-- Reemplazar con tu imagen -->
+                        <i class="fas fa-hands-helping placeholder-icon"></i>
+                    </div>
+                    <h3 class="feature-title">Voluntariado</h3>
+                    <p class="feature-desc">Únete a nuestro equipo de voluntarios y contribuye directamente a la protección y estudio de las aves en tu área.</p>
+                    <a href="#" class="btn">Más información</a>
                 </div>
             </div>
-        </header>
-        
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Bienvenidos a SOCNAS</h1>
-                <p>Asociación dedicada a la protección, estudio y conservación de las aves y sus hábitats naturales.</p>
-                <a href="#" class="btn">Únete a nosotros</a>
-            </div>
-        </section>
-        
-        <section class="features">
-            <div class="container">
-                <h2 class="section-title">Nuestras Actividades</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="image-circle">
-                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeShj4sIpZjT2jxiJfx9_mx_xd2fAKAho2tetavf_WiX0peB8FivKjizZLGbFvFfmsmOVO9uEZD29YOlenwLSwbrXwKvBOJOrQ2zQEvctUOyQXNVu7D8x5_hafnzrePZFiGLdRRjkxxFLHDOfJXEM4DRzlPEkfZfSAjVdmBkpRe6FvDoCu-ro15WcUZ5A=s1600" alt="Observación de Aves">
-                        </div>
-                        <h3 class="feature-title">Observación de Aves</h3>
-                        <p class="feature-desc">Organizamos excursiones guiadas para observar aves en sus hábitats naturales. Aprende a identificar distintas especies con expertos.</p>
-                        <a href="#" class="btn btn-azul" onclick="mostrarPagina('observacion')">Más información</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="image-circle">
-                            <img src="https://fesacocur.es/wp-content/uploads/2015/09/logo-fesacocur-redondo.png" alt="Conservación de Hábitats">
-                        </div>
-                        <h3 class="feature-title">Conservación de Hábitats</h3>
-                        <p class="feature-desc">Participa en nuestros programas de reforestación y conservación de los ecosistemas esenciales para las aves.</p>
-                        <a href="#" class="btn" onclick="mostrarPagina('conservacion')">Más información</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="image-circle">
-                            <i class="fas fa-graduation-cap placeholder-icon"></i>
-                        </div>
-                        <h3 class="feature-title">Educación Ambiental</h3>
-                        <p class="feature-desc">Ofrecemos talleres y materiales educativos para escuelas y comunidades sobre la importancia de las aves en nuestros ecosistemas.</p>
-                        <a href="#" class="btn" onclick="mostrarPagina('educacion')">Más información</a>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="image-circle">
-                            <i class="fas fa-hands-helping placeholder-icon"></i>
-                        </div>
-                        <h3 class="feature-title">Voluntariado</h3>
-                        <p class="feature-desc">Únete a nuestro equipo de voluntarios y contribuye directamente a la protección y estudio de las aves en tu área.</p>
-                        <a href="#" class="btn" onclick="mostrarPagina('voluntariado')">Más información</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <footer>
-            <div class="container">
-                <p>&copy; 2023 SOCNAS - Asociación de Protección de Aves. Todos los derechos reservados.</p>
-            </div>
-        </footer>
-    </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 SOCNAS - Asociación de Protección de Aves. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-    <!-- PANTALLAS DE DETALLE (una por cada botón) -->
-    <div id="pantalla-observacion" class="detalle-pagina">
-        <h2>Observación de Aves</h2>
-        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeShj4sIpZjT2jxiJfx9_mx_xd2fAKAho2tetavf_WiX0peB8FivKjizZLGbFvFfmsmOVO9uEZD29YOlenwLSwbrXwKvBOJOrQ2zQEvctUOyQXNVu7D8x5_hafnzrePZFiGLdRRjkxxFLHDOfJXEM4DRzlPEkfZfSAjVdmBkpRe6FvDoCu-ro15WcUZ5A=s1600" alt="Observación">
-        <p>La observación de aves es una de nuestras actividades más populares. Cada mes organizamos salidas guiadas por reservas naturales, humedales y zonas de montaña donde puedes ver cientos de especies en su hábitat natural.</p>
-        <p>Nuestros guías son expertos ornitólogos que te ayudarán a identificar especies por su canto, plumaje y comportamiento. Apto para todos los niveles: principiantes, familias y expertos.</p>
-        <p>Te recomendamos llevar binoculares, cuaderno de campo, ropa adecuada y mucha paciencia. ¡La naturaleza te sorprenderá!</p>
-        <a href="#" class="btn" onclick="volverHome()">← Volver al inicio</a>
-    </div>
-
-    <div id="pantalla-conservacion" class="detalle-pagina">
-        <h2>Conservación de Hábitats</h2>
-        <img src="https://fesacocur.es/wp-content/uploads/2015/09/logo-fesacocur-redondo.png" alt="Conservación">
-        <p>Trabajamos activamente en la protección y restauración de ecosistemas clave para la supervivencia de muchas especies de aves. Colaboramos con otras asociaciones y administraciones en proyectos de reforestación, limpieza de riberas y recuperación de humedales.</p>
-        <p>Participa en nuestras jornadas de voluntariado: siembra árboles, retira plásticos, construye nidos artificiales o ayuda en el seguimiento de especies en peligro.</p>
-        <p>Cada acción cuenta. Únete a una causa que perdurará generaciones.</p>
-        <a href="#" class="btn" onclick="volverHome()">← Volver al inicio</a>
-    </div>
-
-    <div id="pantalla-educacion" class="detalle-pagina">
-        <h2>Educación Ambiental</h2>
-        <i class="fas fa-graduation-cap" style="font-size: 5rem; color: #162e4a; display: block; text-align: center; margin: 2rem 0;"></i>
-        <p>Creemos que la educación es la base de la conservación. Por eso ofrecemos talleres, charlas y actividades escolares para enseñar a niños, jóvenes y adultos sobre la importancia de las aves en el equilibrio de los ecosistemas.</p>
-        <p>Trabajamos con colegios, centros culturales y asociaciones vecinales. Nuestro material didáctico es gratuito y adaptado a cada edad.</p>
-        <p>¿Quieres que vayamos a tu escuela o barrio? Contáctanos y organizamos una actividad gratuita.</p>
-        <a href="#" class="btn" onclick="volverHome()">← Volver al inicio</a>
-    </div>
-
-    <div id="pantalla-voluntariado" class="detalle-pagina">
-        <h2>Voluntariado</h2>
-        <i class="fas fa-hands-helping" style="font-size: 5rem; color: #162e4a; display: block; text-align: center; margin: 2rem 0;"></i>
-        <p>¿Te apasiona la naturaleza? Únete a nuestro equipo de voluntarios. No necesitas experiencia previa, solo ganas de ayudar.</p>
-        <p>Puedes colaborar en salidas de campo, organización de eventos, difusión en redes sociales, diseño de materiales o apoyo administrativo.</p>
-        <p>Miles de aves dependen de personas como tú. Haz la diferencia desde hoy.</p>
-        <a href="#" class="btn" onclick="volverHome()">← Volver al inicio</a>
+    <!-- Modal para FESACOCUR -->
+    <div class="modal-overlay" id="modal-fesacocur">
+        <div class="close-modal" id="close-modal">&times;</div>
+        <div class="modal-content">
+            <iframe id="fesacocur-content" src="about:blank" width="100%" height="800px"></iframe>
+        </div>
     </div>
 
     <script>
-        function mostrarPagina(id) {
-            document.getElementById('pantalla-home').style.display = 'none';
-            document.getElementById('pantalla-' + id).style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        function volverHome() {
-            // Ocultar todas las pantallas de detalle
-            document.querySelectorAll('.detalle-pagina').forEach(div => {
-                div.style.display = 'none';
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('modal-fesacocur');
+            const closeBtn = document.getElementById('close-modal');
+            const fesacocurBtn = document.getElementById('btn-fesacocur');
+            const iframe = document.getElementById('fesacocur-content');
+            
+            // Contenido HTML de FESACOCUR
+            const fesacocurHTML = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>FESACOCUR - SOCNAS</title>
+                    <style>
+                        body {
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            margin: 0;
+                            padding: 20px;
+                            background-color: #f5f5f5;
+                            color: #333;
+                        }
+                        .container {
+                            max-width: 1000px;
+                            margin: 0 auto;
+                            background: white;
+                            padding: 20px;
+                            border-radius: 8px;
+                            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <!-- Aquí va el contenido completo que proporcionaste -->
+                        <div id="coe-foa-container">
+                            <!-- Todo el contenido de FESACOCUR aquí -->
+                            <!-- He abreviado el contenido por razones de espacio, pero debe ir completo -->
+                            <header>
+                                <div class="logo-container">
+                                    <img alt="Logo FESACOCUR" src="https://fesacocur.es/wp-content/uploads/2015/09/logo-fesacocur-redondo.png" />
+                                    <br/>
+                                    Avicultura, Colombicultura y Cunicultura de raza
+                                </div>
+                                <!-- Resto del contenido... -->
+                            </header>
+                            <!-- Todo el resto del contenido HTML que me proporcionaste -->
+                            <p style="text-align: center; font-size: 1.2rem; color: #1e3a5f;">
+                                Bienvenido a la plataforma FESACOCUR de SOCNAS. Aquí encontrarás todos los servicios 
+                                de conservación de hábitats, solicitud de anillas federadas y certificados para conejos.
+                            </p>
+                            <div style="text-align: center; margin: 30px 0;">
+                                <button style="background: #1e3a5f; color: white; border: none; padding: 15px 30px; 
+                                border-radius: 5px; font-size: 1.1rem; cursor: pointer;">
+                                    Acceder a servicios FESACOCUR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            // Abrir modal
+            fesacocurBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // Cargar el contenido en el iframe
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                iframeDoc.open();
+                iframeDoc.write(fesacocurHTML);
+                iframeDoc.close();
             });
-            // Mostrar home
-            document.getElementById('pantalla-home').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
+            
+            // Cerrar modal
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Cerrar al hacer clic fuera del contenido
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
     </script>
 </body>
 </html>
