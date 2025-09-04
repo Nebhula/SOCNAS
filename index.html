@@ -22,8 +22,9 @@
         header {
             background: linear-gradient(135deg, #162e4a 0%, #2c5e8e 100%);
             color: white;
-            padding: 15px 0;
+            padding: 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         
         .container {
@@ -34,20 +35,22 @@
         
         .header-content {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 0 10px;
+            gap: 5px;
+            padding: 10px 0;
         }
         
         .logo {
-            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
         
         .logo img {
-            height: 100px;
+            height: 240px;
             width: auto;
+            max-width: 100%;
             border-radius: 8px;
         }
         
@@ -56,9 +59,9 @@
             list-style: none;
             gap: 25px;
             flex-wrap: wrap;
-            justify-content: flex-end;
+            justify-content: center;
             margin: 0;
-            padding: 0;
+            padding: 10px 0;
         }
         
         nav a {
@@ -68,7 +71,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
         }
         
         nav a span {
@@ -81,7 +83,7 @@
             color: #ffcb69;
             transform: translateY(-3px);
         }
-
+        
         /* Hero section con carrusel */
         .hero {
             text-align: center;
@@ -107,9 +109,10 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
         
         .slide.active {
@@ -268,187 +271,70 @@
             flex-grow: 1;
             font-size: 1.05rem;
         }
-
-        /* FAQ DINÁMICA MEJORADA */
-        .faq-section {
-            padding: 5rem 1rem;
-            background: white;
-            margin: 4rem 0 0;
-        }
         
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #f9f9f9;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-        }
-        
-        .faq-header {
-            text-align: center;
-            padding: 30px 20px;
-            background: #162e4a;
-            color: white;
-        }
-        
-        .faq-header h2 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-        
-        .faq-header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Buscador */
-        .faq-search {
-            padding: 20px;
-            background: white;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .search-box {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .search-box i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #aaa;
-        }
-        
-        .search-box input {
-            width: 100%;
-            padding: 12px 15px 12px 45px;
-            border: 2px solid #ddd;
-            border-radius: 50px;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        
-        .search-box input:focus {
-            border-color: #1e88e5;
-        }
-
-        /* Pestañas */
-        .faq-tabs {
-            display: flex;
-            justify-content: center;
-            background: #eee;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .faq-tab {
-            padding: 15px 25px;
-            cursor: pointer;
-            font-weight: 600;
-            color: #555;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
-        }
-        
-        .faq-tab.active {
-            color: #1e88e5;
-            border-bottom: 3px solid #1e88e5;
-        }
-        
-        .faq-tab:hover {
-            background: #f5f5f5;
-        }
-
-        /* Lista de preguntas */
-        .faq-list {
-            padding: 20px;
-        }
-        
-        .faq-item {
-            border-bottom: 1px solid #eee;
-            margin: 0;
-        }
-        
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #162e4a;
-            background: #f0f7ff;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .faq-question:hover {
-            background: #e0efff;
-            color: #1a3a66;
-        }
-        
-        .faq-question i {
-            transition: transform 0.3s ease;
-            color: #1e88e5;
-        }
-        
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease;
-            color: #555;
-            line-height: 1.7;
-        }
-        
-        .faq-answer p {
-            margin: 15px 0;
-        }
-        
-        .faq-answer ul {
-            margin: 15px 0;
-            padding-left: 20px;
-        }
-        
-        .faq-answer li {
-            margin: 8px 0;
-        }
-        
-        .highlight {
-            background: #fff3e0;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            font-size: 0.95rem;
-            border-left: 4px solid #ffa726;
-        }
-        
-        .highlight i {
-            color: #ffa726;
-            margin-right: 8px;
-        }
-
+        /* FOOTER MEJORADO */
         footer {
             background-color: #162e4a;
             color: white;
-            text-align: center;
-            padding: 3rem 0;
+            padding: 3rem 0 2rem;
             margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo img {
+            height: 80px;
+            width: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        
+        .footer-menu {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-menu a span {
+            font-size: 0.8rem;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+        
+        .footer-menu a:hover {
+            color: #ffcb69;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+            width: 100%;
         }
 
         /* MODAL */
@@ -514,6 +400,7 @@
             border-radius: 6px;
             font-weight: bold;
             margin: 0 10px;
+            transition: opacity 0.3s ease;
         }
         
         .modal-btn:hover {
@@ -527,6 +414,7 @@
             font-size: 1.5rem;
             color: #aaa;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
         
         .close-modal:hover {
@@ -558,17 +446,16 @@
             background-color: #ffcb69;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
             .logo img {
-                height: 120px;
+                height: 180px;
             }
-            nav ul {
-                justify-content: center;
+            nav a {
+                font-size: 1.2rem;
+                gap: 4px;
+            }
+            nav a span {
+                font-size: 0.75rem;
             }
             .hero h1 {
                 font-size: 2.8rem;
@@ -580,14 +467,25 @@
                 padding: 4rem 1rem;
                 height: 450px;
             }
-            .faq-header h2 {
-                font-size: 1.8rem;
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            
+            .footer-menu {
+                justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
             .logo img {
-                height: 100px;
+                height: 160px;
             }
             .hero h1 {
                 font-size: 2.2rem;
@@ -608,12 +506,17 @@
             .hero {
                 height: 400px;
             }
-            .faq-header h2 {
-                font-size: 1.6rem;
+            
+            .footer-menu {
+                gap: 15px;
             }
-            .faq-question {
-                font-size: 1rem;
-                padding: 15px;
+            
+            .footer-menu a {
+                font-size: 1.2rem;
+            }
+            
+            .footer-logo img {
+                height: 70px;
             }
         }
     </style>
@@ -622,11 +525,9 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <!-- Logo a la izquierda -->
                 <div class="logo">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEim-nbGWuSSZRBJ4f_vkGlQX6Eqle_NskEX3x9c1GJVusxVs_U3p2Na-6XwoyE0ksIPkgMsD4RVWy8gsvCGwktWUIpgSZXcKYOI0tW_wEXC_EjEXkZaTivN_bBZ2Yv4ty4Y9yXiWg-8fPAidfTDfT2F8bi9yeMs3XvqPZEtVvpOfh-ehPYPKE4D3KILFvo/s1600/nebhula%20%2834%29.png" alt="SOCNAS - Asociación de Pájaros">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhKpqbREvAPisnQmpf5zZeiRNu-3ijbegh2TfbY5tv0_TCWzxn9zynbewk5BMtSjs6PetuA1VCdF4OrkXz4gG_Gs538TON6X29SCIXNMzhaW1bwawN-y3XtlgD9EB79oNsI8xQRNsQmfO-7UmCw9i_G1SCB4fxMXXTFN-qa0HVByeS2LCYI2fR1rGWK4OY=s1600" alt="SOCNAS - Asociación de Pájaros">
                 </div>
-                <!-- Iconos con texto a la derecha -->
                 <nav>
                     <ul>
                         <li><a href="#" onclick="abrirModal('whatsapp')"><i class="fas fa-bell"></i><span>Canal</span></a></li>
@@ -654,7 +555,7 @@
         </div>
         
         <div class="hero-content">
-            <h1>Bienvenidos a SOCNAS</h1>
+            <h1>Bienvenidos to SOCNAS</h1>
             <p>Asociación dedicada a la protección, estudio y conservación de las aves y sus hábitats naturales.</p>
             <a href="#" class="btn">Únete a nosotros</a>
         </div>
@@ -669,7 +570,7 @@
                         <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeShj4sIpZjT2jxiJfx9_mx_xd2fAKAho2tetavf_WiX0peB8FivKjizZLGbFvFfmsmOVO9uEZD29YOlenwLSwbrXwKvBOJOrQ2zQEvctUOyQXNVu7D8x5_hafnzrePZFiGLdRRjkxxFLHDOfJXEM4DRzlPEkfZfSAjVdmBkpRe6FvDoCu-ro15WcUZ5A=s1600" alt="Observación de Aves">
                     </div>
                     <h3 class="feature-title">Observación de Aves</h3>
-                    <p class="feature-desc">Organizamos excursiones guiadas para observar aves en sus hábitats naturales. Aprende a identificar distintas especies con expertos.</p>
+                    <p class="feature-desc">Organizamos excursiones guiadas para observar aves en sus hábitats naturales. Aprende to identificar distintas especies con expertos.</p>
                     <a href="#" class="btn btn-azul">Más información</a>
                 </div>
                 
@@ -702,121 +603,22 @@
             </div>
         </div>
     </section>
-
-    <!-- FAQ DINÁMICA MEJORADA -->
-    <section class="faq-section">
-        <div class="faq-container">
-            <div class="faq-header">
-                <h2>¿Tienes dudas?</h2>
-                <p>Encuentra respuestas a las preguntas más frecuentes</p>
-            </div>
-
-            <div class="faq-search">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="faqSearch" placeholder="Buscar una pregunta...">
-                </div>
-            </div>
-
-            <div class="faq-tabs">
-                <div class="faq-tab active" data-tab="todos">Todas</div>
-                <div class="faq-tab" data-tab="aves">Aves</div>
-                <div class="faq-tab" data-tab="conejos">Conejos</div>
-                <div class="faq-tab" data-tab="socio">Socio</div>
-            </div>
-
-            <div class="faq-list">
-                <div class="faq-item" data-category="aves">
-                    <div class="faq-question">
-                        <span>¿Qué son las anillas federadas?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Las anillas federadas son identificadores oficiales homologados por la <strong>Entente Europea (COE)</strong>. Cada anilla tiene un código único que registra al ave como parte de una cría legal y controlada.</p>
-                        <div class="highlight">
-                            <i class="fas fa-lightbulb"></i> <strong>Importante:</strong> Solo las anillas oficiales permiten participar en concursos internacionales.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-category="conejos">
-                    <div class="faq-question">
-                        <span>¿Qué son los certificados de identidad para conejos?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Los certificados de identidad (C.I.) son documentos oficiales que acreditan la pertenencia de un conejo a un criador federado. Se entregan en <strong>cartulinas oficiales</strong> y son necesarios para participar en exposiciones.</p>
-                        <ul>
-                            <li>Mínimo 10 por solicitud.</li>
-                            <li>Válidos internacionalmente.</li>
-                            <li>Incluyen numeración única.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-category="socio">
-                    <div class="faq-question">
-                        <span>¿Cómo renuevo mi carnet de socio?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Es muy fácil:</p>
-                        <ol>
-                            <li>Haz clic en "Renovar Carnet" en el menú.</li>
-                            <li>Paga la cuota anual (25€).</li>
-                            <li>Recibe tu nuevo carnet físico y digital.</li>
-                        </ol>
-                        <div class="highlight">
-                            <i class="fas fa-check-circle"></i> <strong>Beneficio:</strong> Mantienes tu clave de acceso y todos tus datos guardados.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-category="aves">
-                    <div class="faq-question">
-                        <span>¿Cuáles son los calibres disponibles para anillas?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Ofrecemos anillas de los siguientes diámetros:</p>
-                        <ul>
-                            <li>⌀2.0 mm</li>
-                            <li>⌀2.5 mm</li>
-                            <li>⌀3.0 mm</li>
-                            <li>⌀3.5 mm</li>
-                            <li>⌀4.0 mm</li>
-                            <li>⌀4.5 mm</li>
-                            <li>⌀5.0 mm</li>
-                            <li>⌀5.2 mm</li>
-                            <li>⌀6.0 mm</li>
-                        </ul>
-                        <p>Todas cumplen con la normativa <strong>COE-FOA</strong>.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-category="socio">
-                    <div class="faq-question">
-                        <span>¿Qué beneficios tiene el carnet digital?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>El carnet digital te permite:</p>
-                        <ul>
-                            <li>Acceder a tu perfil desde cualquier dispositivo.</li>
-                            <li>Descargar anillas solicitadas previamente.</li>
-                            <li>Recibir notificaciones de nuevas convocatorias.</li>
-                            <li>Compartir tu estatus de socio federado.</li>
-                        </ul>
-                        <p>Accede en: <a href="https://socnasdigi.netlify.app/" target="_blank">socnasdigi.netlify.app</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 SOCNAS - Asociación de Protección de Aves. Todos los derechos reservados.</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhKpqbREvAPisnQmpf5zZeiRNu-3ijbegh2TfbY5tv0_TCWzxn9zynbewk5BMtSjs6PetuA1VCdF4OrkXz4gG_Gs538TON6X29SCIXNMzhaW1bwawN-y3XtlgD9EB79oNsI8xQRNsQmfO-7UmCw9i_G1SCB4fxMXXTFN-qa0HVByeS2LCYI2fR1rGWK4OY=s1600" alt="SOCNAS - Asociación de Pájaros">
+                    <div class="footer-menu">
+                        <a href="#" onclick="abrirModal('whatsapp')"><i class="fas fa-bell"></i><span>Canal</span></a>
+                        <a href="https://wa.me/34677163664" target="_blank"><i class="fab fa-whatsapp"></i><span>Contacto</span></a>
+                        <a href="https://www.google.com/maps/place/tu-empresa" target="_blank"><i class="fas fa-star"></i><span>Reseña</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SOCNAS - Asociación de Protección de Aves. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
@@ -849,95 +651,51 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Carrusel de imágenes
+        // Carrusel de imágenes optimizado
         document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.slide');
             const indicators = document.querySelectorAll('.indicator');
             let currentSlide = 0;
+            let slideInterval;
             
+            // Precargar imágenes para mejor rendimiento
+            function preloadImages() {
+                slides.forEach(slide => {
+                    const img = new Image();
+                    img.src = slide.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+                });
+            }
+            
+            // Función para cambiar de slide
             function goToSlide(n) {
                 slides[currentSlide].classList.remove('active');
                 indicators[currentSlide].classList.remove('active');
+                
                 currentSlide = (n + slides.length) % slides.length;
+                
                 slides[currentSlide].classList.add('active');
                 indicators[currentSlide].classList.add('active');
             }
             
+            // Event listeners para los indicadores
             indicators.forEach((indicator, index) => {
                 indicator.addEventListener('click', () => {
                     goToSlide(index);
-                    resetInterval();
                 });
             });
             
-            let slideInterval = setInterval(nextSlide, 7000);
-            function nextSlide() { goToSlide(currentSlide + 1); }
-            function resetInterval() {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, 7000);
+            // Cambio automático cada 5 segundos
+            function startInterval() {
+                slideInterval = setInterval(nextSlide, 5000);
             }
             
-            const heroSection = document.querySelector('.hero');
-            heroSection.addEventListener('mouseenter', () => { clearInterval(slideInterval); });
-            heroSection.addEventListener('mouseleave', () => { slideInterval = setInterval(nextSlide, 7000); });
-        });
-
-        // FAQ Dinámica Mejorada
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            const tabs = document.querySelectorAll('.faq-tab');
-            const searchInput = document.getElementById('faqSearch');
-
-            // Mostrar todas al cargar
-            faqItems.forEach(item => { item.style.display = 'block'; });
-
-            // Acordeón
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    const isOpen = item.classList.contains('active');
-                    faqItems.forEach(el => {
-                        el.classList.remove('active');
-                        el.querySelector('.faq-answer').style.maxHeight = '0';
-                        el.querySelector('.faq-answer').style.opacity = '0';
-                    });
-                    if (!isOpen) {
-                        item.classList.add('active');
-                        const answer = item.querySelector('.faq-answer');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        answer.style.opacity = '1';
-                    }
-                });
-            });
-
-            // Pestañas
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const category = tab.dataset.tab;
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    faqItems.forEach(item => {
-                        if (category === 'todos' || item.dataset.category === category) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-
-            // Buscador
-            searchInput.addEventListener('input', function() {
-                const term = this.value.toLowerCase();
-                faqItems.forEach(item => {
-                    const text = item.querySelector('.faq-question span').textContent.toLowerCase();
-                    if (text.includes(term)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+            
+            // Iniciar el carrusel después de precargar imágenes
+            preloadImages();
+            startInterval();
         });
     </script>
 </body>
