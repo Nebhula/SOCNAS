@@ -22,7 +22,7 @@
         header {
             background: linear-gradient(135deg, #162e4a 0%, #2c5e8e 100%);
             color: white;
-            padding: 0; /* Eliminado padding vertical */
+            padding: 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
@@ -37,8 +37,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px; /* Espacio mínimo entre logo y menú */
-            padding: 10px 0; /* Ajuste total */
+            gap: 5px;
+            padding: 10px 0;
         }
         
         .logo {
@@ -48,9 +48,10 @@
         }
         
         .logo img {
-            height: 200px;
+            height: 240px;
             width: auto;
             max-width: 100%;
+            border-radius: 8px;
         }
         
         nav ul {
@@ -60,7 +61,7 @@
             flex-wrap: wrap;
             justify-content: center;
             margin: 0;
-            padding: 10px 0; /* Menú pegado al logo */
+            padding: 10px 0;
         }
         
         nav a {
@@ -270,6 +271,25 @@
             line-height: 1.6;
         }
         
+        .modal-list {
+            text-align: left;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        
+        .modal-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .modal-list i {
+            color: #25D366;
+            font-size: 1.1rem;
+            min-width: 20px;
+        }
+        
         .modal-btn {
             display: inline-block;
             padding: 12px 25px;
@@ -300,7 +320,7 @@
 
         @media (max-width: 768px) {
             .logo img {
-                height: 160px;
+                height: 180px;
             }
             nav a {
                 font-size: 1.2rem;
@@ -322,7 +342,7 @@
 
         @media (max-width: 480px) {
             .logo img {
-                height: 140px;
+                height: 160px;
             }
             .hero h1 {
                 font-size: 2.2rem;
@@ -348,7 +368,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhKpqbREvAPisnQmpf5zZeiRNu-3ijbegh2TfbY5tv0_TCWzxn9zynbewk5BMtSjs6PetuA1VCdF4OrkXz4gG_Gs538TON6X29SCIXNMzhaW1bwawN-y3XtlgD9EB79oNsI8xQRNsQmfO-7UmCw9i_G1SCB4fxMXXTFN-qa0HVByeS2LCYI2fR1rGWK4OY=s1600" alt="SOCNAS - Asociación de Pájaros">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEim-nbGWuSSZRBJ4f_vkGlQX6Eqle_NskEX3x9c1GJVusxVs_U3p2Na-6XwoyE0ksIPkgMsD4RVWy8gsvCGwktWUIpgSZXcKYOI0tW_wEXC_EjEXkZaTivN_bBZ2Yv4ty4Y9yXiWg-8fPAidfTDfT2F8bi9yeMs3XvqPZEtVvpOfh-ehPYPKE4D3KILFvo/s1600/nebhula%20%2834%29.png" alt="SOCNAS - Asociación de Pájaros">
                 </div>
                 <nav>
                     <ul>
@@ -422,14 +442,14 @@
     <div id="whatsappModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-modal" onclick="cerrarModal('whatsappModal')">&times;</span>
-            <h2>🔔 Únete a nuestro canal de WhatsApp</h2>
+            <h2><i class="fas fa-bell"></i> Únete a nuestro canal de WhatsApp</h2>
             <p>Recibe notificaciones directas sobre:</p>
-            <ul style="text-align: left; margin: 15px 0; line-height: 1.6;">
-                <li>📅 Nuevas salidas al campo</li>
-                <li>📢 Convocatorias de eventos</li>
-                <li>🕊️ Novedades sobre aves raras avistadas</li>
-                <li>🎁 Descuentos en material ornitológico</li>
-                <li>📚 Talleres y cursos gratuitos</li>
+            <ul class="modal-list">
+                <li><i class="fas fa-calendar-alt"></i> Nuevas salidas al campo</li>
+                <li><i class="fas fa-bullhorn"></i> Convocatorias de eventos</li>
+                <li><i class="fas fa-dove"></i> Novedades sobre aves raras avistadas</li>
+                <li><i class="fas fa-gift"></i> Descuentos en material ornitológico</li>
+                <li><i class="fas fa-book"></i> Talleres y cursos gratuitos</li>
             </ul>
             <p>¡No te pierdas nada importante!</p>
             <a href="https://wa.me/34677163664?text=Hola,%20quiero%20unirme%20al%20canal%20de%20SOCNAS" target="_blank" class="modal-btn">Unirse ahora</a>
