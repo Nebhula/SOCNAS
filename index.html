@@ -64,13 +64,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: none; /* Sin transición */
+            transition: all 0.3s ease;
         }
         
         nav a span {
             font-size: 0.8rem;
             margin-top: 4px;
             opacity: 0.9;
+        }
+        
+        nav a:hover {
+            color: #ffcb69;
+            transform: translateY(-3px);
         }
 
         /* Ajuste de tamaño de iconos en móviles */
@@ -97,10 +102,10 @@
         
         .hero {
             text-align: center;
-            padding: 5rem 1rem;
+            padding: 3rem 1rem;
             color: white;
             position: relative;
-            height: 500px;
+            height: 400px;
             overflow: hidden;
         }
         
@@ -118,15 +123,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
+            opacity: 1;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-        }
-        
-        .slide.active {
-            opacity: 1;
         }
         
         .slide::before {
@@ -136,23 +136,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: linear-gradient(to bottom, rgba(22, 46, 74, 0.85), rgba(22, 46, 74, 0.7));
         }
         
         .slide-1 {
             background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuHyyGYm4rUg-e32VP0k4yIiyYRLxWdnemXnql_OcGS7ja3YHHn9OpVY4J1mCZWEnn-tp14HLi65TSeIvrqSlYx-MfDQByfommwVR-giw5zuukkNfi7UTz7tmk0LrEX7BtARW7pfGADnFNmuH83SbcunM1VAlYItoytby7VY1P90mJWKJdw8Zmr1utFWE/s1600/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%281%29.gif');
-        }
-        
-        .slide-2 {
-            background-image: url('https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80');
-        }
-        
-        .slide-3 {
-            background-image: url('https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
-        }
-        
-        .slide-4 {
-            background-image: url('https://images.unsplash.com/photo-1531875506263-6eb73c17a2fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1194&q=80');
         }
         
         .hero-content {
@@ -160,17 +148,18 @@
             max-width: 800px;
             margin: 0 auto;
             z-index: 2;
+            padding-top: 2rem;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -180,18 +169,20 @@
             display: inline-block;
             background-color: #ffcb69;
             color: #162e4a;
-            padding: 14px 35px;
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: none;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .btn:hover {
             background-color: #ffb224;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
         
         .btn-azul {
@@ -204,30 +195,30 @@
         }
         
         .features {
-            padding: 6rem 1rem;
+            padding: 3rem 1rem 2rem;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
             color: #162e4a;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
         
         .feature-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-            transition: none; /* Sin efecto de movimiento */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -237,17 +228,22 @@
             background-color: #e6f0ff;
         }
         
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+        
         .image-circle {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background-color: #f0f7ee;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             overflow: hidden;
-            border: 4px solid #162e4a;
+            border: 3px solid #162e4a;
         }
         
         .image-circle img {
@@ -257,30 +253,30 @@
         }
         
         .placeholder-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: #162e4a;
         }
         
         .feature-title {
-            font-size: 1.7rem;
-            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             color: #162e4a;
         }
         
         .feature-desc {
             color: #555;
-            margin-bottom: 2rem;
-            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
             flex-grow: 1;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
         
         footer {
             background-color: #162e4a;
             color: white;
             text-align: center;
-            padding: 3rem 0;
-            margin-top: 3rem;
+            padding: 2rem 0;
+            margin-top: 2rem;
         }
 
         .modal-overlay {
@@ -298,7 +294,7 @@
         
         .modal-content {
             background: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 12px;
             width: 90%;
             max-width: 500px;
@@ -309,12 +305,14 @@
         .modal-content h2 {
             color: #162e4a;
             margin-bottom: 15px;
+            font-size: 1.5rem;
         }
         
         .modal-content p {
             color: #555;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             line-height: 1.6;
+            font-size: 1rem;
         }
         
         .modal-list {
@@ -328,6 +326,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.95rem;
         }
         
         .modal-list i {
@@ -338,14 +337,15 @@
         
         .modal-btn {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 10px 20px;
             background: #25D366;
             color: white;
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
             margin: 0 10px;
-            transition: none;
+            transition: opacity 0.3s ease;
+            font-size: 0.95rem;
         }
         
         .modal-btn:hover {
@@ -359,34 +359,11 @@
             font-size: 1.5rem;
             color: #aaa;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
         
         .close-modal:hover {
             color: #000;
-        }
-
-        .slide-indicators {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            z-index: 10;
-        }
-        
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .indicator.active {
-            background-color: #ffcb69;
         }
 
         @media (max-width: 768px) {
@@ -412,16 +389,25 @@
             }
             
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.2rem;
+            }
+            
+            .hero {
+                height: 350px;
+                padding: 2rem 1rem;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
             }
             
-            .hero {
-                padding: 4rem 1rem;
-                height: 450px;
+            .features {
+                padding: 2rem 1rem 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
             }
         }
 
@@ -431,44 +417,48 @@
             }
             
             nav ul {
-                gap: 20px;
+                gap: 15px;
             }
             
             nav a {
-                font-size: 1.2rem;
-            }
-            
-            nav a i {
-                font-size: 1.8rem;
-            }
-            
-            nav a span {
-                font-size: 0.75rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
                 font-size: 1.1rem;
             }
             
+            nav a i {
+                font-size: 1.5rem;
+            }
+            
+            nav a span {
+                font-size: 0.7rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
             .section-title {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
             
             .feature-card {
-                padding: 2.5rem 1.5rem;
+                padding: 1.5rem 1rem;
             }
             
             .image-circle {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
             }
             
             .hero {
-                height: 400px;
+                height: 300px;
+            }
+            
+            .feature-title {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -494,18 +484,13 @@
     
     <section class="hero">
         <div class="hero-slides">
-            <div class="slide slide-1 active"></div>
-            <div class="slide slide-2"></div>
-            <div class="slide slide-3"></div>
-            <div class="slide slide-4"></div>
+            <div class="slide slide-1"></div>
         </div>
         
-        
-        
         <div class="hero-content">
-            
+            <h1>Bienvenidos a SOCNAS</h1>
             <p>Asociación dedicada a la protección, estudio y conservación de las aves y sus hábitats naturales.</p>
-            
+            <a href="#" class="btn">Únete a nosotros</a>
         </div>
     </section>
     
@@ -587,51 +572,10 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Carrusel de imágenes optimizado
+        // Precargar la imagen para mejor rendimiento
         document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide');
-            const indicators = document.querySelectorAll('.indicator');
-            let currentSlide = 0;
-            let slideInterval;
-            
-            // Precargar imágenes para mejor rendimiento
-            function preloadImages() {
-                slides.forEach(slide => {
-                    const img = new Image();
-                    img.src = slide.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
-                });
-            }
-            
-            // Función para cambiar de slide
-            function goToSlide(n) {
-                slides[currentSlide].classList.remove('active');
-                indicators[currentSlide].classList.remove('active');
-                
-                currentSlide = (n + slides.length) % slides.length;
-                
-                slides[currentSlide].classList.add('active');
-                indicators[currentSlide].classList.add('active');
-            }
-            
-            // Event listeners para los indicadores
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    goToSlide(index);
-                });
-            });
-            
-            // Cambio automático cada 5 segundos
-            function startInterval() {
-                slideInterval = setInterval(nextSlide, 5000);
-            }
-            
-            function nextSlide() {
-                goToSlide(currentSlide + 1);
-            }
-            
-            // Iniciar el carrusel después de precargar imágenes
-            preloadImages();
-            startInterval();
+            const img = new Image();
+            img.src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuHyyGYm4rUg-e32VP0k4yIiyYRLxWdnemXnql_OcGS7ja3YHHn9OpVY4J1mCZWEnn-tp14HLi65TSeIvrqSlYx-MfDQByfommwVR-giw5zuukkNfi7UTz7tmk0LrEX7BtARW7pfGADnFNmuH83SbcunM1VAlYItoytby7VY1P90mJWKJdw8Zmr1utFWE/s1600/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%281%29.gif";
         });
     </script>
 </body>
