@@ -24,18 +24,16 @@
             color: white;
             padding: 15px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
         }
         
         .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .logo {
@@ -102,100 +100,28 @@
         
         .hero {
             text-align: center;
-            padding: 3rem 1rem;
             color: white;
             position: relative;
-            height: 400px;
+            height: 70vh;
             overflow: hidden;
-        }
-        
-        .hero-slides {
-            position: absolute;
-            top: 0;
-            left: 0;
+            background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjM6aFdnpsNbiKx8ssLPkvyIfseua6UWIOsw4WpZuyd2B5TmyGCxxmqjJx6SwTy-i3y3DUA4e6DJuqVxvybVQdQpa2JXT-ramMIS38KtacahF_rq_ZHyG1Da7n0GTylBvvDCWtBI74qjE_H99L-Z3EaZ26Jgh4qNx9jCNCcrkeRDdvzGrXnE2_4K5-PVMk/s1600/Copia%20de%20.%20%281080%20x%201080%20px%29%20%281%29.gif') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             width: 100%;
-            height: 100%;
         }
         
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 1;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(22, 46, 74, 0.85), rgba(22, 46, 74, 0.7));
-        }
-        
-        .slide-1 {
-            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjM6aFdnpsNbiKx8ssLPkvyIfseua6UWIOsw4WpZuyd2B5TmyGCxxmqjJx6SwTy-i3y3DUA4e6DJuqVxvybVQdQpa2JXT-ramMIS38KtacahF_rq_ZHyG1Da7n0GTylBvvDCWtBI74qjE_H99L-Z3EaZ26Jgh4qNx9jCNCcrkeRDdvzGrXnE2_4K5-PVMk/s1600/Copia%20de%20.%20%281080%20x%201080%20px%29%20%281%29.gif');
-        }
-        
-        .hero-content {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            z-index: 2;
-            padding-top: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1.2rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #ffcb69;
-            color: #162e4a;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .btn:hover {
-            background-color: #ffb224;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .btn-azul {
-            background-color: #1e3a5f;
+        .hero-text {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.4);
             color: white;
-        }
-        
-        .btn-azul:hover {
-            background-color: #152942;
+            font-size: 1.1rem;
+            width: 100%;
         }
         
         .features {
-            padding: 3rem 1rem 2rem;
+            padding: 3rem 0;
+            width: 100%;
         }
         
         .section-title {
@@ -203,18 +129,19 @@
             margin-bottom: 2.5rem;
             color: #162e4a;
             font-size: 2.2rem;
+            width: 100%;
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            width: 100%;
+            max-width: 100%;
         }
         
         .feature-card {
             background: white;
-            border-radius: 12px;
-            overflow: hidden;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
@@ -222,6 +149,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 100%;
+            border-right: 1px solid #eee;
+        }
+        
+        .feature-card:last-child {
+            border-right: none;
         }
         
         .feature-card:first-child {
@@ -271,12 +204,31 @@
             font-size: 1rem;
         }
         
+        .btn {
+            display: inline-block;
+            background-color: #1e3a5f;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: #152942;
+            transform: translateY(-2px);
+        }
+        
         footer {
             background-color: #162e4a;
             color: white;
             text-align: center;
             padding: 2rem 0;
-            margin-top: 2rem;
+            width: 100%;
         }
 
         .modal-overlay {
@@ -366,6 +318,20 @@
             color: #000;
         }
 
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .feature-card:nth-child(2) {
+                border-right: none;
+            }
+            
+            .feature-card:nth-child(4) {
+                border-right: 1px solid #eee;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -388,21 +354,25 @@
                 font-size: 1.6rem;
             }
             
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
             .hero {
-                height: 350px;
-                padding: 2rem 1rem;
+                height: 60vh;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
             }
             
+            .feature-card {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .feature-card:last-child {
+                border-bottom: none;
+            }
+            
             .features {
-                padding: 2rem 1rem 1.5rem;
+                padding: 2rem 0;
             }
             
             .section-title {
@@ -432,12 +402,9 @@
                 font-size: 0.7rem;
             }
             
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
+            .hero-text {
                 font-size: 1rem;
+                padding: 10px;
             }
             
             .section-title {
@@ -454,7 +421,7 @@
             }
             
             .hero {
-                height: 300px;
+                height: 50vh;
             }
             
             .feature-title {
@@ -466,81 +433,69 @@
 <body>
     <!-- ENCABEZADO CON LOGO A LA IZQUIERDA Y MENÚ AL LADO -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEienInQd_dFdfLwGw__ncypnuGGEqa5yD3JoKAsQF-Lsoh7R_gMF8X0pxUBQFT5F1j2DvGZsdrGrZnZTNvrwTLPw_J-F9l6TJhzVtGFDdm9D1atTm2HmmT8iDFqiYzO43uWJ6n8BhEgCcFTvTnjP2tji_vqCYYpAQnfsxncR4x6SPuWYtL_xpdNhvlDs6E/s1600/nebhula%20%2835%29.png" alt="SOCNAS - Asociación de Pájaros">
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#" onclick="abrirModal('whatsapp')"><i class="fas fa-bell"></i><span>Canal</span></a></li>
-                        <li><a href="https://wa.me/34677163664" target="_blank"><i class="fab fa-whatsapp"></i><span>Contacto</span></a></li>
-                        <li><a href="https://www.google.com/maps/place/tu-empresa" target="_blank"><i class="fas fa-star"></i><span>Reseña</span></a></li>
-                    </ul>
-                </nav>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEienInQd_dFdfLwGw__ncypnuGGEqa5yD3JoKAsQF-Lsoh7R_gMF8X0pxUBQFT5F1j2DvGZsdrGrZnZTNvrwTLPw_J-F9l6TJhzVtGFDdm9D1atTm2HmmT8iDFqiYzO43uWJ6n8BhEgCcFTvTnjP2tji_vqCYYpAQnfsxncR4x6SPuWYtL_xpdNhvlDs6E/s1600/nebhula%20%2835%29.png" alt="SOCNAS - Asociación de Pájaros">
             </div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="abrirModal('whatsapp')"><i class="fas fa-bell"></i><span>Canal</span></a></li>
+                    <li><a href="https://wa.me/34677163664" target="_blank"><i class="fab fa-whatsapp"></i><span>Contacto</span></a></li>
+                    <li><a href="https://www.google.com/maps/place/tu-empresa" target="_blank"><i class="fas fa-star"></i><span>Reseña</span></a></li>
+                </ul>
+            </nav>
         </div>
     </header>
     
     <section class="hero">
-        <div class="hero-slides">
-            <div class="slide slide-1"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1>Bienvenidos a SOCNAS</h1>
-            <p>Asociación dedicada a la protección, estudio y conservación de las aves y sus hábitats naturales.</p>
-            <a href="#" class="btn">Únete a nosotros</a>
+        <div class="hero-text">
+            Asociación dedicada a la protección, estudio y conservación de las aves y sus hábitats naturales
         </div>
     </section>
     
     <section class="features">
-        <div class="container">
-            <h2 class="section-title">Nuestras Actividades</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="image-circle">
-                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeShj4sIpZjT2jxiJfx9_mx_xd2fAKAho2tetavf_WiX0peB8FivKjizZLGbFvFfmsmOVO9uEZD29YOlenwLSwbrXwKvBOJOrQ2zQEvctUOyQXNVu7D8x5_hafnzrePZFiGLdRRjkxxFLHDOfJXEM4DRzlPEkfZfSAjVdmBkpRe6FvDoCu-ro15WcUZ5A=s1600" alt="Observación de Aves">
-                    </div>
-                    <h3 class="feature-title">Observación de Aves</h3>
-                    <p class="feature-desc">Organizamos excursiones guiadas para observar aves en sus hábitats naturales. Aprende a identificar distintas especies con expertos.</p>
-                    <a href="#" class="btn btn-azul">Más información</a>
+        <h2 class="section-title">Nuestras Actividades</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="image-circle">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgeShj4sIpZjT2jxiJfx9_mx_xd2fAKAho2tetavf_WiX0peB8FivKjizZLGbFvFfmsmOVO9uEZD29YOlenwLSwbrXwKvBOJOrQ2zQEvctUOyQXNVu7D8x5_hafnzrePZFiGLdRRjkxxFLHDOfJXEM4DRzlPEkfZfSAjVdmBkpRe6FvDoCu-ro15WcUZ5A=s1600" alt="Observación de Aves">
                 </div>
-                
-                <div class="feature-card">
-                    <div class="image-circle">
-                        <img src="https://fesacocur.es/wp-content/uploads/2015/09/logo-fesacocur-redondo.png" alt="Conservación de Hábitats">
-                    </div>
-                    <h3 class="feature-title">Conservación de Hábitats</h3>
-                    <p class="feature-desc">Participa en nuestros programas de reforestación y conservación de los ecosistemas esenciales para las aves.</p>
-                    <a href="#" class="btn">Más información</a>
+                <h3 class="feature-title">Observación de Aves</h3>
+                <p class="feature-desc">Organizamos excursiones guiadas para observar aves en sus hábitats naturales. Aprende a identificar distintas especies con expertos.</p>
+                <a href="#" class="btn">Más información</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="image-circle">
+                    <img src="https://fesacocur.es/wp-content/uploads/2015/09/logo-fesacocur-redondo.png" alt="Conservación de Hábitats">
                 </div>
-                
-                <div class="feature-card">
-                    <div class="image-circle">
-                        <i class="fas fa-graduation-cap placeholder-icon"></i>
-                    </div>
-                    <h3 class="feature-title">Educación Ambiental</h3>
-                    <p class="feature-desc">Ofrecemos talleres y materiales educativos para escuelas y comunidades sobre la importancia de las aves en nuestros ecosistemas.</p>
-                    <a href="#" class="btn">Más información</a>
+                <h3 class="feature-title">Conservación de Hábitats</h3>
+                <p class="feature-desc">Participa en nuestros programas de reforestación y conservación de los ecosistemas esenciales para las aves.</p>
+                <a href="#" class="btn">Más información</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="image-circle">
+                    <i class="fas fa-graduation-cap placeholder-icon"></i>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="image-circle">
-                        <i class="fas fa-hands-helping placeholder-icon"></i>
-                    </div>
-                    <h3 class="feature-title">Voluntariado</h3>
-                    <p class="feature-desc">Únete a nuestro equipo de voluntarios y contribuye directamente a la protección y estudio de las aves en tu área.</p>
-                    <a href="#" class="btn">Más información</a>
+                <h3 class="feature-title">Educación Ambiental</h3>
+                <p class="feature-desc">Ofrecemos talleres y materiales educativos para escuelas y comunidades sobre la importancia de las aves en nuestros ecosistemas.</p>
+                <a href="#" class="btn">Más información</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="image-circle">
+                    <i class="fas fa-hands-helping placeholder-icon"></i>
                 </div>
+                <h3 class="feature-title">Voluntariado</h3>
+                <p class="feature-desc">Únete a nuestro equipo de voluntarios y contribuye directamente a la protección y estudio de las aves en tu área.</p>
+                <a href="#" class="btn">Más información</a>
             </div>
         </div>
     </section>
     
     <footer>
-        <div class="container">
-            <p>&copy; 2025 SOCNAS - Asociación de Protección de Aves. Todos los derechos reservados.</p>
-        </div>
+        <p>&copy; 2025 SOCNAS - Asociación de Protección de Aves. Todos los derechos reservados.</p>
     </footer>
 
     <!-- MODAL: Únete a WhatsApp -->
@@ -575,7 +530,7 @@
         // Precargar la imagen para mejor rendimiento
         document.addEventListener('DOMContentLoaded', function() {
             const img = new Image();
-            img.src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuHyyGYm4rUg-e32VP0k4yIiyYRLxWdnemXnql_OcGS7ja3YHHn9OpVY4J1mCZWEnn-tp14HLi65TSeIvrqSlYx-MfDQByfommwVR-giw5zuukkNfi7UTz7tmk0LrEX7BtARW7pfGADnFNmuH83SbcunM1VAlYItoytby7VY1P90mJWKJdw8Zmr1utFWE/s1600/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%281%29.gif";
+            img.src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjM6aFdnpsNbiKx8ssLPkvyIfseua6UWIOsw4WpZuyd2B5TmyGCxxmqjJx6SwTy-i3y3DUA4e6DJuqVxvybVQdQpa2JXT-ramMIS38KtacahF_rq_ZHyG1Da7n0GTylBvvDCWtBI74qjE_H99L-Z3EaZ26Jgh4qNx9jCNCcrkeRDdvzGrXnE2_4K5-PVMk/s1600/Copia%20de%20.%20%281080%20x%201080%20px%29%20%281%29.gif";
         });
     </script>
 </body>
